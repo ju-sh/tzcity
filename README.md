@@ -18,7 +18,7 @@ It can be installed from PyPI with pip using
 
 <h2>Usage</h2>
 
-### `tzcity.tzcity(city: str) -> str`
+> ##### `tzcity.tzcity(city: str) -> str`
 
 Accepts a city name and returns the time zone name associated with that city.
 
@@ -33,7 +33,9 @@ Raises `ValueError` if unable to recognize city.
     >>> tzcity.tzcity('myanmar')  # a country with only one time zone
     'Asia/Yangon'
 
-### `tzcity.capitalize(name: str) -> str`
+---
+
+> ##### `tzcity.capitalize(name: str) -> str`
 
 Capitalize the city or time zone name provided as argument.
 
