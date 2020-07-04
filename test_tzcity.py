@@ -1,6 +1,6 @@
 import pytest
 
-import cities
+import tzcity
 
 class TestFindTZ:
     @pytest.mark.parametrize('city,expected', [
@@ -9,14 +9,14 @@ class TestFindTZ:
         ('africa/dar_es_salaam', 'Africa/Dar_es_Salaam'),
     ])
     def test_valid(self, city, expected):
-        assert cities.find_tz(city) == expected
+        assert tzcity.find_tz(city) == expected
 
     @pytest.mark.parametrize('city', [
         'wonderland'
     ])
     def test_invalid(self, city):
         with pytest.raises(ValueError):
-            cities.find_tz(city)
+            tzcity.find_tz(city)
 
 class TestCapIt:
     @pytest.mark.parametrize('name,expected', [
@@ -28,14 +28,14 @@ class TestCapIt:
         ('america/port_of_spain', 'America/Port_of_Spain'),
     ])
     def test_valid(self, name, expected):
-        assert cities.cap_it(name) == expected
+        assert tzcity.cap_it(name) == expected
 
     @pytest.mark.parametrize('name', [
         "d'",
     ])
     def test_invalid(self, name):
         with pytest.raises(ValueError):
-            cities.cap_it(name)
+            tzcity.cap_it(name)
 
 class TestCapsify:
     @pytest.mark.parametrize('name,expected', [
@@ -52,11 +52,11 @@ class TestCapsify:
         ('fort-de-france', 'Fort-de-France'),
     ])
     def test_valid(self, name, expected):
-        assert cities.capsify(name) == expected
+        assert tzcity.capsify(name) == expected
         
     @pytest.mark.parametrize('name', [
         "d'",
     ])
     def test_invalid(self, name):
         with pytest.raises(ValueError):
-            cities.capsify(name)
+            tzcity.capsify(name)
