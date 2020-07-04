@@ -2,23 +2,26 @@ import pytest
 
 import tzcity
 
-class TestFindTZ:
+
+class TestTZCity:
     @pytest.mark.parametrize('city,expected', [
         ('lOnDon', 'Europe/London'),
         ('port au prince', 'America/Port-au-Prince'),
         ('africa/dar_es_salaam', 'Africa/Dar_es_Salaam'),
+        ('new YORK', 'America/New_York'),
     ])
     def test_valid(self, city, expected):
-        assert tzcity.find_tz(city) == expected
+        assert tzcity.tzcity(city) == expected
 
     @pytest.mark.parametrize('city', [
         'wonderland'
     ])
     def test_invalid(self, city):
         with pytest.raises(ValueError):
-            tzcity.find_tz(city)
+            tzcity.tzcity(city)
 
-class TestCapIt:
+
+class TestCapitalize:
     @pytest.mark.parametrize('name,expected', [
         ('rio de janeiro', 'Rio de Janeiro'),
         ('uae', 'UAE'),
@@ -26,16 +29,18 @@ class TestCapIt:
         ("n'djamena", "N'Djamena"),
         ('atlantic/cape_verde', 'Atlantic/Cape_Verde'),
         ('america/port_of_spain', 'America/Port_of_Spain'),
+        ('washington dc', 'Washington DC'),
     ])
     def test_valid(self, name, expected):
-        assert tzcity.cap_it(name) == expected
+        assert tzcity.capitalize(name) == expected
 
     @pytest.mark.parametrize('name', [
         "d'",
     ])
     def test_invalid(self, name):
         with pytest.raises(ValueError):
-            tzcity.cap_it(name)
+            tzcity.capitalize(name)
+
 
 class TestCapsify:
     @pytest.mark.parametrize('name,expected', [
@@ -50,13 +55,14 @@ class TestCapsify:
         ("dumont d'urville", "Dumont d'Urville"),
         ('port-au-prince', 'Port-au-Prince'),
         ('fort-de-france', 'Fort-de-France'),
+        ('nur-sultan', 'Nur-Sultan'),
     ])
     def test_valid(self, name, expected):
-        assert tzcity.capsify(name) == expected
-        
+        assert tzcity.caps_city(name) == expected
+
     @pytest.mark.parametrize('name', [
         "d'",
     ])
     def test_invalid(self, name):
         with pytest.raises(ValueError):
-            tzcity.capsify(name)
+            tzcity.caps_city(name)
