@@ -1,0 +1,22 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "tzcity"
+author = "Julin S"
+author-email = ""
+description-file = "README.md"
+home-page = "https://github.com/ju-sh/tzcity"
+classifiers = ["License :: OSI Approved :: MIT License"]
+
+[tool.flit.metadata.requires-extra]
+test = [
+    "mypy",
+    "flake8",
+    "pylint",
+    "vulture",
+    "pytest",
+    "coverage",
+    "tox",
+]
