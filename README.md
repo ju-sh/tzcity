@@ -1,7 +1,7 @@
 # tzcity
 
 <a href="https://pypi.org/ju-sh/tzcity"><img alt="PyPI" src="https://img.shields.io/pypi/v/tzcity"></a>
-<a href="https://travis-ci.com/ju-sh/tzcity"><img alt="Build Status" src="https://api.travis-ci.com/ju-sh/tzcity.svg?branch=master"></a>
+<img alt="Build Status" src="https://api.travis-ci.com/ju-sh/tzcity.svg?branch=master"></img>
 <a href="https://github.com/ju-sh/tzcity/blob/master/LICENSE"><img alt="License: MIT" src="https://img.shields.io/pypi/l/tzcity"></a>
 
 A module to find the Olson database time zone names of some of the most populous cities in the world without an internet connection.

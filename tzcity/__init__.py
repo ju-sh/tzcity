@@ -7,21 +7,6 @@ __version__ = "0.0.1"
 from typing import Dict, List
 import re
 
-# continent_dict = {
-#     "AF": "Africa",
-#     "AM": "America",
-#     "AN": "Antartica",
-#     "AR": "Arctic",
-#     "AS": "Asia",
-#     "AT": "Atlantic",
-#     "AU": "Australia",
-#     "E" : "Europe",
-#     "I" : "Indian",
-#     "P" : "Pacific",
-# }
-#
-# Translate input to use this dict
-
 
 CITY_DICT: Dict[str, List[str]] = {
     "africa/abidjan": ["cote d'ivoire", "ivory coast", "yamoussaoukro"],
@@ -478,7 +463,7 @@ def tzcity(city: str) -> str:
 
 def capitalize(name: str) -> str:
     """
-    Return capitalized form of the input city or tz name
+    Return capitalized form of the input city or tz name.
 
     Raises ValueError on unknown pattern
     """
