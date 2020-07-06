@@ -22,7 +22,7 @@ It can be installed from PyPI with pip using
 
 Accepts a city name and returns the time zone name associated with that city.
 
-Raises `ValueError` if unable to recognize city.
+Raises `UnknownTZCityException` if unable to recognize city.
 
     >>> tzcity.tzcity('abu dhabi')
     'Asia/Dubai'
@@ -39,7 +39,7 @@ Raises `ValueError` if unable to recognize city.
 
 Capitalize the city or time zone name provided as argument.
 
-Raises `ValueError` if unable to recognize name.
+Raises `UnknownTZCityException` if unable to recognize name.
 
     >>> tzcity.capitalize('andorra la vella')
     'Andorra la Vella'
