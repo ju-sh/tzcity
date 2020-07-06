@@ -8,6 +8,16 @@ from typing import Dict, List
 import re
 
 
+class UnknownTZCityException(ValueError):
+    """
+    Exception raised when unable to recognize a time zone or
+    city name
+    """
+    def __init__(self, message: str) -> None:
+        self.message = message
+        super().__init__(self.message)
+
+
 CITY_DICT: Dict[str, List[str]] = {
     "africa/abidjan": ["cote d'ivoire", "ivory coast", "yamoussaoukro"],
     "africa/accra": ["ghana"],
@@ -458,14 +468,14 @@ def tzcity(city: str) -> str:
     if tz_value:
         return capitalize(tz_value)
 
-    raise ValueError(f"Could not find the time zone for: {city}!")
+    raise UnknownTZCityException(f"Could not find the time zone for: {city}!")
 
 
 def capitalize(name: str) -> str:
     """
     Return capitalized form of the input city or tz name.
 
-    Raises ValueError on unknown pattern
+    Raises UnknownTZCityException on unknown pattern
     """
 
     # For tz names (which have a '/')
@@ -528,7 +538,7 @@ def caps_city(name: str) -> str:
                     repl_str = OTHERS[match_str]
                     new_word = f"{repl_str}{word[len(match_str):].title()}"
                 else:
-                    raise ValueError(
+                    raise UnknownTZCityException(
                         f"Could not capitalize '{word}'. Unknown pattern")
             else:
                 new_word = word.title()
