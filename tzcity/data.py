@@ -1,3 +1,7 @@
+"""
+Data used by tzcity
+"""
+
 from typing import Dict, List
 
 CITY_DICT: Dict[str, List[str]] = {
@@ -420,4 +424,3 @@ CITY_DICT: Dict[str, List[str]] = {
     "pacific/tongatapu": ["tonga"],
     "pacific/wallis": ["wallis and futuna", "mata utu"],
 }
-

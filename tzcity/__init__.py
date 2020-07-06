@@ -2,11 +2,12 @@
 Module to translate city names to time zone names
 """
 
-__version__ = "0.0.2"
+__version__ = "0.0.3-alpha"
 
 import re
 
 from tzcity.data import CITY_DICT
+
 
 class UnknownTZCityException(ValueError):
     """
@@ -61,13 +62,13 @@ def capitalize(name: str) -> str:
         tz, city = name.split('/')
         tz = tz.title()
         city = city.replace('_', ' ')
-        city = caps_city(city)
+        city = _caps_city(city)
         city = city.replace(' ', '_')
         return f"{tz}/{city}"
-    return caps_city(name)
+    return _caps_city(name)
 
 
-def caps_city(name: str) -> str:
+def _caps_city(name: str) -> str:
     """
     Capitalize city names appropriately.
     For use of capitalize() function.
