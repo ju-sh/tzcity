@@ -2,7 +2,7 @@
 Module to translate city names to time zone names
 """
 
-1_version__ = "0.0.2"
+__version__ = "0.0.2"
 
 from typing import Dict, List
 import re
