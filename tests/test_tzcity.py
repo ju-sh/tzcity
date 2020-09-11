@@ -1,5 +1,6 @@
 import pytest
 
+import tzcity.core
 import tzcity
 
 
@@ -60,12 +61,12 @@ class TestCapsify:
         ('nur-sultan', 'Nur-Sultan'),
     ])
     def test_valid(self, name, expected):
-        assert tzcity._caps_city(name) == expected
+        assert tzcity.core._caps_city(name) == expected
 
     @pytest.mark.parametrize('name', [
         "d'",
     ])
     def test_invalid(self, name):
         with pytest.raises(tzcity.UnknownTZCityException) as utzce:
-            tzcity._caps_city(name)
+            tzcity.core._caps_city(name)
         assert utzce.value.citytz == name

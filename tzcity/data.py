@@ -277,7 +277,7 @@ CITY_DICT: Dict[str, List[str]] = {
     "asia/singapore": ["singapore"],
     "asia/srednekolymsk": [],
     "asia/taipei": ["taiwan"],
-    "asia/tashkent": [],
+    "asia/tashkent": ["uzbekistan"],
     "asia/tbilisi": ["georgia"],
     "asia/tehran": ["iran"],
     "asia/thimphu": ["bhutan"],
@@ -389,13 +389,13 @@ CITY_DICT: Dict[str, List[str]] = {
     "indian/reunion": ["reunion"],
     "pacific/apia": ["samoa"],
     "pacific/auckland": ["wellington"],
-    "pacific/bougainville": ["papua new guinea"],
+    "pacific/bougainville": [],
     "pacific/chatham": ["chatham islands"],
     "pacific/chuuk": [],
     "pacific/easter": [],
     "pacific/efate": ["vanuatu"],
     "pacific/enderbury": [],
-    "pacific/fakaofo": [],
+    "pacific/fakaofo": ["tokelau"],
     "pacific/fiji": ["suva"],
     "pacific/funafuti": ["tuvalu"],
     "pacific/galapagos": [],
@@ -416,7 +416,7 @@ CITY_DICT: Dict[str, List[str]] = {
     "pacific/palau": ["koror", "ngerulmud"],
     "pacific/pitcairn": ["pitcairn islands", "adamstown"],
     "pacific/pohnpei": [],
-    "pacific/port_moresby": ["papua new guinea"],
+    "pacific/port_moresby": [],
     "pacific/rarotonga": ["cook islands", "avarua"],
     "pacific/saipan": ["northern mariana islands"],
     "pacific/tahiti": [],
@@ -424,3 +424,9 @@ CITY_DICT: Dict[str, List[str]] = {
     "pacific/tongatapu": ["tonga"],
     "pacific/wallis": ["wallis and futuna", "mata utu"],
 }
+
+"""
+changes:
+remove papua new guinea as bougainville has a different itme despite being a part of papua new guinea.
+Samarkand and Tashkent are of the same time since 1991. Add Uzbekistan name.
+"""
