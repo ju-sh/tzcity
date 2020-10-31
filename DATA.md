@@ -1,8 +1,10 @@
-The data is orgainized as a dictionary in the [`tzcity/__init__.py`](https://github.com/ju-sh/tzcity/blob/master/tzcity/__init__.py) file where each key is a time zone name whose value is a list of cities associated with that time zone.
+The data is organized as a dictionary in the [`tzcity/data.py`](https://github.com/ju-sh/tzcity/blob/master/tzcity/data.py) file where each key is a time zone name whose value is a list of cities associated with that time zone.
 
 Inaccuracies or spelling mistakes, if any, are regretted and can be corrected.
 
-A good source of data: http://download.geonames.org/export/dump/
+A source of data: [http://download.geonames.org/export/dump/](http://download.geonames.org/export/dump/)
+
+Also used [https://www.timeanddate.com/time/zones](https://www.timeanddate.com/time/zones)
 
 ---
 
@@ -18,11 +20,11 @@ In case of multiple cities with the same name, use the more populous city.
 
 ---
 
-For backward compatibility, the cities which have been added may not be removed. But new cities may be added as needed.
+For backward compatibility, the cities which have been added may not be removed unless to correct a mistake. New cities may be added as needed.
 
 ---
 
-Inorder to limit the size of the package, only most populous cities of each time zone may be added.
+In order to limit the size of the package, only most populous cities of each time zone may be added.
 
 ---
 

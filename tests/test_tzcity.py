@@ -18,9 +18,8 @@ class TestTZCity:
         'wonderland'
     ])
     def test_invalid(self, city):
-        with pytest.raises(tzcity.UnknownTZCityException) as utzce:
+        with pytest.raises(ValueError):
             tzcity.tzcity(city)
-        assert utzce.value.citytz == city
 
 
 class TestCapitalize:
@@ -40,9 +39,8 @@ class TestCapitalize:
         "d'",
     ])
     def test_invalid(self, name):
-        with pytest.raises(tzcity.UnknownTZCityException) as utzce:
+        with pytest.raises(ValueError):
             tzcity.capitalize(name)
-        assert utzce.value.citytz == name
 
 
 class TestCapsify:
@@ -67,6 +65,5 @@ class TestCapsify:
         "d'",
     ])
     def test_invalid(self, name):
-        with pytest.raises(tzcity.UnknownTZCityException) as utzce:
+        with pytest.raises(ValueError):
             tzcity.core._caps_city(name)
-        assert utzce.value.citytz == name

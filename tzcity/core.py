@@ -1,16 +1,10 @@
+"""
+Core functionality of tzcity
+"""
+
 import re
 
 from tzcity.data import CITY_DICT
-
-
-class UnknownTZCityException(ValueError):
-    """
-    Exception raised when unable to unambiguously recognize a
-    time zone or city name
-    """
-    def __init__(self, message: str, citytz: str) -> None:
-        super().__init__(message)
-        self.citytz = citytz
 
 
 def tzcity(city: str) -> str:
@@ -41,14 +35,14 @@ def tzcity(city: str) -> str:
     if tz_value:
         return capitalize(tz_value)
 
-    raise UnknownTZCityException("Ambiguous or unknown time zone", city)
+    raise ValueError(f"{city}: Ambiguous or unknown time zone")
 
 
 def capitalize(name: str) -> str:
     """
     Return capitalized form of the input city or tz name.
 
-    Raises UnknownTZCityException on unknown pattern
+    Raises ValueError on unknown pattern
     """
 
     # For tz names (which have a '/')
@@ -111,10 +105,8 @@ def _caps_city(name: str) -> str:
                     repl_str = OTHERS[match_str]
                     new_word = f"{repl_str}{word[len(match_str):].title()}"
                 else:
-                    raise UnknownTZCityException(
-                        "Unknown pattern. Could not capitalize", word)
+                    raise ValueError(f"{word} Could not capitalize")
             else:
                 new_word = word.title()
         new_words.append(new_word)
     return ' '.join(new_words)
-
