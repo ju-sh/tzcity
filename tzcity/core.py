@@ -45,14 +45,27 @@ def capitalize(name: str) -> str:
     Raises ValueError on unknown pattern
     """
 
-    # For tz names (which have a '/')
-    if '/' in name:
-        tz, city = name.split('/')
-        tz = tz.title()
+    # a tz name
+    if name in CITY_DICT:
+        # tz names will have at least one '/'
+        tzfull, city = name.rsplit('/', maxsplit=1)
+        if '/' in tzfull:
+            # 3-part tz names
+            continent, country = tzfull.split('/')
+            continent = continent.title()
+            country = country.title()
+        else:
+            # normal 2-part tz names
+            continent = ""
+            country = tzfull.title()
         city = city.replace('_', ' ')
         city = _caps_city(city)
         city = city.replace(' ', '_')
-        return f"{tz}/{city}"
+        if continent:
+            return f"{continent}/{country}/{city}"
+        return f"{country}/{city}"
+
+    # Not a tz name
     return _caps_city(name)
 
 

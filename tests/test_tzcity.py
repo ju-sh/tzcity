@@ -31,6 +31,7 @@ class TestCapitalize:
         ('atlantic/cape_verde', 'Atlantic/Cape_Verde'),
         ('america/port_of_spain', 'America/Port_of_Spain'),
         ('washington dc', 'Washington DC'),
+        ('america/argentina/buenos_aires', 'America/Argentina/Buenos_Aires'),
     ])
     def test_valid(self, name, expected):
         assert tzcity.capitalize(name) == expected
