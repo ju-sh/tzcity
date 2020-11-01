@@ -10,6 +10,9 @@ class TestTZCity:
         ('port au prince', 'America/Port-au-Prince'),
         ('africa/dar_es_salaam', 'Africa/Dar_es_Salaam'),
         ('new YORK', 'America/New_York'),
+        ('xian', 'Asia/Shanghai'),
+        ("x'ian", 'Asia/Shanghai'),
+        ('awst', 'Australia/Perth'),
     ])
     def test_valid(self, city, expected):
         assert tzcity.tzcity(city) == expected
